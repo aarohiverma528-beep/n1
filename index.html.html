@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedyBites | Fast Food Express</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-yellow: #ffc107;
+            --brand-red: #e63946;
+            --brand-dark: #1d3557;
+        }
+
+        body { font-family: 'Poppins', sans-serif; background-color: #fffaf0; scroll-behavior: smooth; }
+        .font-bungee { font-family: 'Bungee', cursive; }
+
+        /* Navbar */
+        .navbar { background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://images.unsplash.com/photo-1594212699903-ec8a3eca50f5?auto=format&fit=crop&w=1400&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero-section h1 { font-size: 5rem; color: var(--brand-yellow); margin-bottom: 20px; }
+
+        /* General Section Header */
+        .section-header { text-align: center; margin-bottom: 60px; }
+        .section-header h2 { font-size: 3rem; position: relative; display: inline-block; }
+        .section-header h2::after {
+            content: ''; width: 60%; height: 5px; background: var(--brand-red);
+            position: absolute; bottom: -10px; left: 20%; border-radius: 10px;
+        }
+
+        /* Menu Section */
+        .food-card { border: none; border-radius: 20px; overflow: hidden; transition: 0.3s; background: white; }
+        .food-card:hover { transform: translateY(-10px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .food-img { height: 220px; object-fit: cover; width: 100%; }
+        .price-badge { background: var(--brand-red); color: white; padding: 5px 15px; border-radius: 50px; font-weight: bold; }
+
+        /* Gallery Section */
+        .gallery-item { position: relative; overflow: hidden; border-radius: 15px; height: 300px; }
+        .gallery-item img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+        .gallery-item:hover img { transform: scale(1.1); }
+        .gallery-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(230, 57, 70, 0.8); display: flex; align-items: center;
+            justify-content: center; opacity: 0; transition: 0.3s; color: white; font-weight: bold;
+        }
+        .gallery-item:hover .gallery-overlay { opacity: 1; }
+
+        /* Testimonials */
+        .testimonial-sec { background: var(--brand-dark); color: white; padding: 100px 0; }
+        .testi-img { width: 90px; height: 90px; border-radius: 50%; border: 4px solid var(--brand-yellow); }
+
+        /* Contact Section */
+        .contact-card { background: white; border-radius: 30px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); overflow: hidden; }
+        .contact-info-bg { background: var(--brand-red); color: white; padding: 50px; }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand font-bungee text-danger fs-3" href="#">SPEEDY<span class="text-warning">BITES</span></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center fw-bold text-uppercase">
+                    <li class="nav-item"><a class="nav-link px-3" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#menu">Menu</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link px-3" href="#contact">Contact</a></li>
+                    <li class="nav-item"><a class="btn btn-danger rounded-pill px-4 ms-lg-3 text-white" href="#">Order Now</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-section">
+        <div class="container">
+            <h1 class="font-bungee text-uppercase">Crave It.<br>Get It. <span class="text-white">Fast.</span></h1>
+            <p class="lead mb-5 fs-3">Fresh ingredients, bold flavors, delivered in 20 minutes.</p>
+            <a href="#menu" class="btn btn-warning btn-lg px-5 py-3 rounded-pill fw-bold font-bungee">View Full Menu</a>
+        </div>
+    </header>
+
+    <section id="menu" class="py-5">
+        <div class="container py-5">
+            <div class="section-header">
+                <h2 class="font-bungee">Our Bestsellers</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="card food-card shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500" class="food-img" alt="Burger">
+                        <div class="card-body p-4 text-center">
+                            <h4 class="fw-bold">Double Patty Burger</h4>
+                            <p class="text-muted">Pure Angus beef with cheddar and house sauce.</p>
+                            <div class="d-flex justify-content-center align-items-center gap-3">
+                                <span class="price-badge">$12.00</span>
+                                <button class="btn btn-outline-danger btn-sm rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?auto=format&fit=crop&w=500" class="food-img" alt="Pizza">
+                        <div class="card-body p-4 text-center">
+                            <h4 class="fw-bold">Pepperoni Max</h4>
+                            <p class="text-muted">Loaded with extra pepperoni and mozzarella.</p>
+                            <div class="d-flex justify-content-center align-items-center gap-3">
+                                <span class="price-badge">$15.00</span>
+                                <button class="btn btn-outline-danger btn-sm rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card food-card shadow-sm">
+                        <img src="https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=500" class="food-img" alt="Chicken">
+                        <div class="card-body p-4 text-center">
+                            <h4 class="fw-bold">Crispy Strips</h4>
+                            <p class="text-muted">Hand-breaded spicy chicken strips with dip.</p>
+                            <div class="d-flex justify-content-center align-items-center gap-3">
+                                <span class="price-badge">$9.50</span>
+                                <button class="btn btn-outline-danger btn-sm rounded-pill">Add to Cart</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-5 bg-white">
+        <div class="container py-5">
+            <div class="section-header">
+                <h2 class="font-bungee">Photo Gallery</h2>
+            </div>
+            <div class="row g-3">
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1596662951482-0c4ba74a6df6?auto=format&fit=crop&w=600" alt="Food">
+                        <div class="gallery-overlay">HOT FRIES</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=600" alt="Food">
+                        <div class="gallery-overlay">CHEESY PIZZA</div>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-6">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1576107232684-1279f390859f?auto=format&fit=crop&w=600" alt="Food">
+                        <div class="gallery-overlay">SHAKE TIME</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=800" alt="Food">
+                        <div class="gallery-overlay">BIG BURGER LIFE</div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-sm-12">
+                    <div class="gallery-item">
+                        <img src="https://images.unsplash.com/photo-1541214113241-21578d2d9b62?auto=format&fit=crop&w=800" alt="Food">
+                        <div class="gallery-overlay">NYC HOTDOGS</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonial-sec">
+        <div class="container text-center">
+            <div class="section-header">
+                <h2 class="font-bungee text-white">Happy Foodies</h2>
+            </div>
+            <div id="testiCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="https://randomuser.me/api/portraits/men/32.jpg" class="testi-img mb-3" alt="User">
+                        <p class="fs-4 italic">"Best burgers in the city! Delivery was under 15 minutes."</p>
+                        <h5 class="text-warning fw-bold">- Johnathan Doe</h5>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="https://randomuser.me/api/portraits/women/44.jpg" class="testi-img mb-3" alt="User">
+                        <p class="fs-4 italic">"The peri-peri fries are life-changing. I order every Friday!"</p>
+                        <h5 class="text-warning fw-bold">- Sarah J. Miller</h5>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#testiCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#testiCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-5">
+        <div class="container py-5">
+            <div class="contact-card row g-0">
+                <div class="col-lg-5 contact-info-bg d-flex flex-column justify-content-center">
+                    <h2 class="font-bungee mb-4">Contact Info</h2>
+                    
+                    <p class="mb-4"><i class="fas fa-phone-alt me-3"></i> +1 800 555 BITESS</p>
+                    <p class="mb-5"><i class="fas fa-envelope me-3"></i> support@speedybites.com</p>
+                    <div class="social-icons fs-3">
+                        <i class="fab fa-facebook me-3"></i>
+                        <i class="fab fa-instagram me-3"></i>
+                        <i class="fab fa-twitter"></i>
+                    </div>
+                </div>
+                <div class="col-lg-7 p-5">
+                    <h2 class="fw-bold mb-4">Write to Us</h2>
+                    <form>
+                        <div class="mb-3">
+                            <input type="text" class="form-control py-3" placeholder="Full Name">
+                        </div>
+                        <div class="mb-3">
+                            <input type="email" class="form-control py-3" placeholder="Email Address">
+                        </div>
+                        <div class="mb-3">
+                            <textarea class="form-control" rows="5" placeholder="Your Message"></textarea>
+                        </div>
+                        <button class="btn btn-danger btn-lg w-100 rounded-pill py-3 fw-bold">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark text-white py-4 text-center">
+        <p class="mb-0">© 2025 SpeedyBites Express. All Rights Reserved.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
